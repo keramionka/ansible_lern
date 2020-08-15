@@ -10,16 +10,13 @@
 
   - name: update repo index
     apt:
+      name: 
+        - "{{my_package}}" 
+      state: latest
       update_cache: yes
     when: ansible_distribution in ["Ubuntu"]
 
 
-     
-  - name: install snapd package latest version
-    apt:
-      name: snapd
-      state: latest
-    when: ansible_distribution in ["Ubuntu" ]
   
   - name: update repo index in centos
     yum:
@@ -30,6 +27,7 @@
 
   - name: install snapd package yam latest version
     yum:
-      name: snapd
+      name: 
+        - "{{my_package}}"
       state: latest
     when: ansible_distribution in ["CentOS" ]
