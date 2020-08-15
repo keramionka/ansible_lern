@@ -3,7 +3,9 @@
 
 - hosts: all
   become: yes
+  remote_user: ansible
   tasks:
           - name: apt update ex
             apt:
                     update_cache: yes
+            when: ansible_distribution in ["Ubuntu","Linux Mint"]

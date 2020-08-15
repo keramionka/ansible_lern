@@ -1,0 +1,35 @@
+---
+
+
+
+- hosts: all
+  become: yes
+  remote_user: ansible
+  tasks:
+
+
+  - name: update repo index
+    apt:
+      update_cache: yes
+    when: ansible_distribution in ["Ubuntu"]
+
+
+     
+  - name: install snapd package latest version
+    apt:
+      name: snapd
+      state: latest
+    when: ansible_distribution in ["Ubuntu" ]
+  
+  - name: update repo index in centos
+    yum:
+      update_cache: yes
+    when: ansible_distribution in ["CentOS"]
+
+
+
+  - name: install snapd package yam latest version
+    yum:
+      name: snapd
+      state: latest
+    when: ansible_distribution in ["CentOS" ]
