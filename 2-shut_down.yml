@@ -10,10 +10,3 @@
             shell: sleep 2 && /sbin/shutdown -c && /sbin/shutdown -h now
             async: 1
             poll: 0
-            when: ansible_distribution in {"Ubuntu"}
-
-          - name: Shutdown centos server
-            shell: sleep 2 && /sbin/shutdown -c && /sbin/shutdown -h now
-            async: 1
-            poll: 0
-            when: ansible_distribution in {"CentOS"}
